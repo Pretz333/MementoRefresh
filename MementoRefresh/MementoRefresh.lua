@@ -39,7 +39,11 @@ function MementoRefresh.slashCommander(command)
     MementoRefresh.savedVariables.mementoId = MementoRefresh.mementos[command].mementoId
     MementoRefresh.savedVariables.abilityId = MementoRefresh.mementos[command].abilityId
     MementoRefresh.savedVariables.delay = MementoRefresh.mementos[command].delay
-    MementoRefresh.shouldRefresh()
+    if MementoRefresh.mementos[command].memento = "no memento" then
+      EVENT_MANAGER:UnregisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT)
+    else
+      MementoRefresh.shouldRefresh()
+    end
   elseif command == 'debug on' then
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name .. 'Debug', EVENT_COMBAT_EVENT, MementoRefresh.debugOn)
     EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name .. 'Debug', EVENT_COMBAT_EVENT, REGISTER_FILTER_SOURCE_COMBAT_UNIT_TYPE, COMBAT_UNIT_TYPE_NONE)
