@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
 	name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.0.4",
+  version = "0.0.5",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
@@ -76,16 +76,16 @@ end
 -- (eventCode, result, isError, abilityName, abilityGraphic, abilityActionSlotType, sourceName, sourceType, targetName, targetType, hitValue, powerType, damageType, log, sourceUnitId, targetUnitId, abilityId, overflow)
 function MementoRefresh.mementoRanOut(_, result, _, abilityName, _, _, _, sourceType, _, _, _, _, _, _, _, _, abilityId)
   if abilityId == MementoRefresh.savedVariables.abilityId then
-    -- if is crouching
+    -- if is crouching then
       -- EVENT_MANAGER:RegisterForUpdate(MementoRefresh.name .. "Crouch", 1500, MementoRefresh.crouchCheck)
     -- else
-    zo_callLater(MementoRefresh.refreshNow(), 1000 + MementoRefresh.savedVariables.delay)
+      zo_callLater(MementoRefresh.refreshNow(), 1000 + MementoRefresh.savedVariables.delay)
     -- end
   end
 end
 
 function MementoRefresh.crouchCheck()
-  -- if not crouching
+  -- if not crouching then
     -- EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "Crouch")
     -- MementoRefresh.refreshNow()
   -- end
