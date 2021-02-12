@@ -16,7 +16,7 @@ MementoRefresh.mementos = {
   ["wildhunt"] = {mementoId = 759, abilityId = 86977, memento = "Wild Hunt Transform", delay = 0},
   ["floral"] = {mementoId = 758, abilityId = 86978, memento = "Floral Swirl Aura", delay = 0},
   ["leaf"] = {mementoId = 760, abilityId = 86976, memento = "Wild Hunt Leaf-Dance Aura", delay = 0},
-  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = "Almalexia's Enchanted Lantern", delay = 0}, --1500
+  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = "Almalexia's Enchanted Lantern", delay = 1500},
   ["crows"] = {mementoId = 1384, abilityId = 97274, memento = "Swarm of Crows", delay = 0},
   ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = "Dwemervamidium Mirage", delay = 0},
   ["finvir"] = {mementoId = 336, abilityId = 21226, memento = "Finvir's Trinket", delay = 0},
