@@ -16,7 +16,7 @@ MementoRefresh.mementos = {
   ["wildhunt"] = {mementoId = 759, abilityId = 86977, memento = "Wild Hunt Transform", delay = 0},
   ["floral"] = {mementoId = 758, abilityId = 86978, memento = "Floral Swirl Aura", delay = 0},
   ["leaf"] = {mementoId = 760, abilityId = 86976, memento = "Wild Hunt Leaf-Dance Aura", delay = 0},
-  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = "Almalexia's Enchanted Lantern", delay = 1500},
+  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = "Almalexia's Enchanted Lantern", delay = 0}, --1500
   ["crows"] = {mementoId = 1384, abilityId = 97274, memento = "Swarm of Crows", delay = 0},
   ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = "Dwemervamidium Mirage", delay = 0},
   ["finvir"] = {mementoId = 336, abilityId = 21226, memento = "Finvir's Trinket", delay = 0},
@@ -54,44 +54,49 @@ function MementoRefresh.slashCommander(command)
 end
 
 function MementoRefresh.shouldRefresh()
+  CHAT_SYSTEM:AddMessage('[MementoRefresh] shouldref')
   if MementoRefresh.savedVariables.mementoId ~= nil then
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name .. "Result", EVENT_COLLECTIBLE_USE_RESULT, MementoRefresh.UseResult)
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, MementoRefresh.mementoRanOut)
     EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_SOURCE_COMBAT_UNIT_TYPE, COMBAT_UNIT_TYPE_NONE)
     EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_COMBAT_RESULT, ACTION_RESULT_EFFECT_FADED)
     -- EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_ABILITY_ID, MementoRefresh.savedVariables.abilityId)
-    UseCollectible(MementoRefresh.savedVariables.mementoId)
+    MementoRefresh.crouchCheck()
   else
     EVENT_MANAGER:UnregisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT)
     EVENT_MANAGER:UnregisterForEvent(MementoRefresh.name .. "Result", EVENT_COLLECTIBLE_USE_RESULT)
   end
 end
 
-function MementoRefresh.UseResult(_, result, isAttemptingActivation)
-  -- if result != COLLECTIBLE_USAGE_BLOCK_REASON_NOT_BLOCKED && isAttemptingActivation then
-    -- zo_callLater(MementoRefresh.refreshNow(), 1000)
-  -- end
+function MementoRefresh.UseResult(_, result)
+  CHAT_SYSTEM:AddMessage('[MementoRefresh] useresult')
+  if result ~= COLLECTIBLE_USAGE_BLOCK_REASON_NOT_BLOCKED then
+    zo_callLater(MementoRefresh.crouchCheck, 1000)
+  end
 end
 
 -- (eventCode, result, isError, abilityName, abilityGraphic, abilityActionSlotType, sourceName, sourceType, targetName, targetType, hitValue, powerType, damageType, log, sourceUnitId, targetUnitId, abilityId, overflow)
 function MementoRefresh.mementoRanOut(_, result, _, abilityName, _, _, _, sourceType, _, _, _, _, _, _, _, _, abilityId)
   if abilityId == MementoRefresh.savedVariables.abilityId then
-    -- if is crouching then
-      -- EVENT_MANAGER:RegisterForUpdate(MementoRefresh.name .. "Crouch", 1500, MementoRefresh.crouchCheck)
-    -- else
-      zo_callLater(MementoRefresh.refreshNow(), 1000 + MementoRefresh.savedVariables.delay)
-    -- end
+    CHAT_SYSTEM:AddMessage('[MementoRefresh] mementoRanOut')
+    if GetUnitStealthState('player') == 0 then
+      zo_callLater(MementoRefresh.refreshNow, 1000 + MementoRefresh.savedVariables.delay)
+    else
+      EVENT_MANAGER:RegisterForUpdate(MementoRefresh.name .. "Crouch", 1500, MementoRefresh.crouchCheck)
+    end
   end
 end
 
 function MementoRefresh.crouchCheck()
-  -- if not crouching then
-    -- EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "Crouch")
-    -- MementoRefresh.refreshNow()
-  -- end
+  CHAT_SYSTEM:AddMessage('[MementoRefresh] crouchCheck')
+  if GetUnitStealthState('player') == 0 then
+    EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "Crouch")
+    MementoRefresh.refreshNow()
+  end
 end
 
 function MementoRefresh.refreshNow()
+  CHAT_SYSTEM:AddMessage('[MementoRefresh] refnow')
   UseCollectible(MementoRefresh.savedVariables.mementoId)
 end
 
