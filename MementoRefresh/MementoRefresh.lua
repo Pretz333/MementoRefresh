@@ -54,7 +54,6 @@ function MementoRefresh.slashCommander(command)
 end
 
 function MementoRefresh.shouldRefresh()
-  CHAT_SYSTEM:AddMessage('[MementoRefresh] shouldref')
   if MementoRefresh.savedVariables.mementoId ~= nil then
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name .. "Result", EVENT_COLLECTIBLE_USE_RESULT, MementoRefresh.UseResult)
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, MementoRefresh.mementoRanOut)
@@ -69,16 +68,16 @@ function MementoRefresh.shouldRefresh()
 end
 
 function MementoRefresh.UseResult(_, result)
-  CHAT_SYSTEM:AddMessage('[MementoRefresh] useresult')
-  if result ~= COLLECTIBLE_USAGE_BLOCK_REASON_NOT_BLOCKED then
-    zo_callLater(MementoRefresh.crouchCheck, 1000)
+  if result == COLLECTIBLE_USAGE_BLOCK_REASON_NOT_BLOCKED then
+    EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "FailedUpdate")
+  else
+    EVENT_MANAGER:RegisterForUpdate(MementoRefresh.name .. "FailedUpdate", 1500, MementoRefresh.crouchCheck)
   end
 end
 
 -- (eventCode, result, isError, abilityName, abilityGraphic, abilityActionSlotType, sourceName, sourceType, targetName, targetType, hitValue, powerType, damageType, log, sourceUnitId, targetUnitId, abilityId, overflow)
 function MementoRefresh.mementoRanOut(_, result, _, abilityName, _, _, _, sourceType, _, _, _, _, _, _, _, _, abilityId)
   if abilityId == MementoRefresh.savedVariables.abilityId then
-    CHAT_SYSTEM:AddMessage('[MementoRefresh] mementoRanOut')
     if GetUnitStealthState('player') == 0 then
       zo_callLater(MementoRefresh.refreshNow, 1000 + MementoRefresh.savedVariables.delay)
     else
@@ -88,7 +87,6 @@ function MementoRefresh.mementoRanOut(_, result, _, abilityName, _, _, _, source
 end
 
 function MementoRefresh.crouchCheck()
-  CHAT_SYSTEM:AddMessage('[MementoRefresh] crouchCheck')
   if GetUnitStealthState('player') == 0 then
     EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "Crouch")
     MementoRefresh.refreshNow()
@@ -96,7 +94,6 @@ function MementoRefresh.crouchCheck()
 end
 
 function MementoRefresh.refreshNow()
-  CHAT_SYSTEM:AddMessage('[MementoRefresh] refnow')
   UseCollectible(MementoRefresh.savedVariables.mementoId)
 end
 
