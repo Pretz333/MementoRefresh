@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
 	name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.0.5",
+  version = "0.0.6",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
@@ -20,6 +20,7 @@ MementoRefresh.mementos = {
   ["crows"] = {mementoId = 1384, abilityId = 97274, memento = "Swarm of Crows", delay = 0},
   ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = "Dwemervamidium Mirage", delay = 0},
   ["finvir"] = {mementoId = 336, abilityId = 21226, memento = "Finvir's Trinket", delay = 0},
+  ["root"] = {mementoId = 349, abilityId = 42008, memento = "Token of Root Sunder", delay = 3250},
   ["none"] = {mementoId = nil, abilityId = nil, memento = "no memento", delay = 0},
 }
 

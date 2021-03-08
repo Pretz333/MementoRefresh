@@ -6,8 +6,8 @@
 ## Title: Memento Refresh
 ## Description: Automatically refreshes some mementos
 ## Author: @Pretz333 (NA)
-## Version: 0.0.5
-## APIVersion: 100033
+## Version: 0.0.6
+## APIVersion: 100034
 ## SavedVariables: MementoRefreshSavedVariables
 
 MementoRefresh.lua
