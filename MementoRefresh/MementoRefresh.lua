@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
 	name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.0.6",
+  version = "0.1.0",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
