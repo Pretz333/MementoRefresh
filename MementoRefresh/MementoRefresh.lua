@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
 	name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.1.0",
+  version = "0.1.1",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
@@ -36,6 +36,8 @@ end
 
 function MementoRefresh.slashCommander(command)
   command = string.lower(command)
+  EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "FailedUpdate", 1500, MementoRefresh.crouchCheck)
+  EVENT_MANAGER:UnregisterForUpdate(MementoRefresh.name .. "Crouch")
   
   if MementoRefresh.mementos[command] ~= nil then
     MementoRefresh.savedVariables.mementoId = MementoRefresh.mementos[command].mementoId
@@ -61,7 +63,7 @@ function MementoRefresh.shouldRefresh()
     EVENT_MANAGER:RegisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, MementoRefresh.mementoRanOut)
     EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_SOURCE_COMBAT_UNIT_TYPE, COMBAT_UNIT_TYPE_NONE)
     EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_COMBAT_RESULT, ACTION_RESULT_EFFECT_FADED)
-    -- EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_ABILITY_ID, MementoRefresh.savedVariables.abilityId)
+    EVENT_MANAGER:AddFilterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT, REGISTER_FILTER_ABILITY_ID, MementoRefresh.savedVariables.abilityId)
     MementoRefresh.crouchCheck()
   else
     EVENT_MANAGER:UnregisterForEvent(MementoRefresh.name, EVENT_COMBAT_EVENT)
