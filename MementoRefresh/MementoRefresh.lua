@@ -11,8 +11,8 @@ MementoRefresh = MementoRefresh or {
 }
 
 MementoRefresh.mementos = {
-  -- ["storm"] = {mementoId = 596, abilityId = 0, memento = "Storm Atronach Transform"},
-  -- ["stormaura"] = {mementoId = 594, abilityId = 0, memento = "Storm Atronach Aura"},
+  ["storm"] = {mementoId = 596, abilityId = 85349, memento = "Storm Atronach Transform", delay = 0},
+  -- ["stormaura"] = {mementoId = 594, abilityId = 0, memento = "Storm Atronach Aura", delay = 0},
   ["wildhunt"] = {mementoId = 759, abilityId = 86977, memento = "Wild Hunt Transform", delay = 0},
   ["floral"] = {mementoId = 758, abilityId = 86978, memento = "Floral Swirl Aura", delay = 0},
   ["leaf"] = {mementoId = 760, abilityId = 86976, memento = "Wild Hunt Leaf-Dance Aura", delay = 0},
