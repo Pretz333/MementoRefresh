@@ -24,6 +24,7 @@ MementoRefresh.mementos = {
   ["pie"] = {mementoId = 1167, abilityId = 91369, memento = "The Pie of Misrule", delay = 0},
   -- ["anger"] = {mementoId = 347, abilityId = 41950, memento = "Fetish of Anger", delay = 2000},
   ["astral"] = {mementoId = 9862, abilityId = 162813, memento = "Astral Aurora Projector", delay = 0},
+  ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = "Mariner's Nimbus Stone", delay = 0},
   ["none"] = {mementoId = nil, abilityId = nil, memento = "no memento", delay = 0},
 }
 
