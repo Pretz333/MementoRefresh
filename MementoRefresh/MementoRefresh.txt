@@ -6,7 +6,7 @@
 ## Title: Memento Refresh
 ## Description: Automatically refreshes some mementos
 ## Author: @Pretz333 (NA)
-## Version: 0.1.3
+## Version: 0.1.4
 ## APIVersion: 101033
 ## SavedVariables: MementoRefreshSavedVariables
 
