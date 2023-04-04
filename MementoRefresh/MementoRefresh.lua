@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
 	name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.1.4",
+  version = "0.1.5",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
@@ -11,20 +11,23 @@ MementoRefresh = MementoRefresh or {
 }
 
 MementoRefresh.mementos = {
-  ["storm"] = {mementoId = 596, abilityId = 85349, memento = "Storm Atronach Transform", delay = 0},
-  ["stormaura"] = {mementoId = 594, abilityId = 85344, memento = "Storm Atronach Aura", delay = 0},
-  ["wildhunt"] = {mementoId = 759, abilityId = 86977, memento = "Wild Hunt Transform", delay = 0},
-  ["floral"] = {mementoId = 758, abilityId = 86978, memento = "Floral Swirl Aura", delay = 0},
-  ["leaf"] = {mementoId = 760, abilityId = 86976, memento = "Wild Hunt Leaf-Dance Aura", delay = 0},
-  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = "Almalexia's Enchanted Lantern", delay = 1500},
-  ["crows"] = {mementoId = 1384, abilityId = 97274, memento = "Swarm of Crows", delay = 0},
-  ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = "Dwemervamidium Mirage", delay = 0},
-  ["finvir"] = {mementoId = 336, abilityId = 21226, memento = "Finvir's Trinket", delay = 0},
-  -- ["root"] = {mementoId = 349, abilityId = 42008, memento = "Token of Root Sunder", delay = 3250},
-  ["pie"] = {mementoId = 1167, abilityId = 91369, memento = "The Pie of Misrule", delay = 0},
-  -- ["anger"] = {mementoId = 347, abilityId = 41950, memento = "Fetish of Anger", delay = 2000},
-  ["astral"] = {mementoId = 9862, abilityId = 162813, memento = "Astral Aurora Projector", delay = 0},
-  ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = "Mariner's Nimbus Stone", delay = 0},
+  ["finvir"] = {mementoId = 336, abilityId = 21226, memento = GetCollectibleName(336), delay = 0},
+  ["lantern"] = {mementoId = 341, abilityId = 26829, memento = GetCollectibleName(341), delay = 1500},
+  -- ["anger"] = {mementoId = 347, abilityId = 41950, memento = GetCollectibleName(347), delay = 2000},
+  -- ["root"] = {mementoId = 349, abilityId = 42008, memento = GetCollectibleName(349), delay = 3250},
+  ["stormaura"] = {mementoId = 594, abilityId = 85344, memento = GetCollectibleName(594), delay = 0},
+  ["storm"] = {mementoId = 596, abilityId = 85349, memento = GetCollectibleName(596), delay = 0},
+  ["floral"] = {mementoId = 758, abilityId = 86978, memento = GetCollectibleName(758), delay = 0},
+  ["wildhunt"] = {mementoId = 759, abilityId = 86977, memento = GetCollectibleName(759), delay = 0},
+  ["leaf"] = {mementoId = 760, abilityId = 86976, memento = GetCollectibleName(760), delay = 0},
+  ["pie"] = {mementoId = 1167, abilityId = 91369, memento = GetCollectibleName(1167), delay = 0},
+  ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = GetCollectibleName(1183), delay = 0},
+  ["crows"] = {mementoId = 1384, abilityId = 97274, memento = GetCollectibleName(1384), delay = 0},
+  ["cleats"] = {mementoId = 9361, abilityId = 162813, memento = GetCollectibleName(9361), delay = 0},
+  ["astral"] = {mementoId = 9862, abilityId = 162813, memento = GetCollectibleName(9862), delay = 0},
+  ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = GetCollectibleName(10236), delay = 0},
+  ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = GetCollectibleName(10236), delay = 0},
+  ["fargrave"] = {mementoId = 10371, abilityId = 166513, memento = GetCollectibleName(10371), delay = 0},
   ["none"] = {mementoId = nil, abilityId = nil, memento = "no memento", delay = 0},
 }
 
