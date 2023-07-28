@@ -1,7 +1,7 @@
 MementoRefresh = MementoRefresh or {
-	name = "MementoRefresh",
+  name = "MementoRefresh",
   author = "@Pretz333 (NA)",
-  version = "0.1.5",
+  version = "0.1.6",
   variableVersion = 2,
   defaults = {
     mementoId = nil,
@@ -23,11 +23,11 @@ MementoRefresh.mementos = {
   ["pie"] = {mementoId = 1167, abilityId = 91369, memento = GetCollectibleName(1167), delay = 0},
   ["dwemer"] = {mementoId = 1183, abilityId = 92868, memento = GetCollectibleName(1183), delay = 0},
   ["crows"] = {mementoId = 1384, abilityId = 97274, memento = GetCollectibleName(1384), delay = 0},
-  ["cleats"] = {mementoId = 9361, abilityId = 162813, memento = GetCollectibleName(9361), delay = 0},
+  ["cleats"] = {mementoId = 9361, abilityId = 153672, memento = GetCollectibleName(9361), delay = 0}, -- TEST
   ["astral"] = {mementoId = 9862, abilityId = 162813, memento = GetCollectibleName(9862), delay = 0},
   ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = GetCollectibleName(10236), delay = 0},
-  ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = GetCollectibleName(10236), delay = 0},
-  ["fargrave"] = {mementoId = 10371, abilityId = 166513, memento = GetCollectibleName(10371), delay = 0},
+  ["fargrave"] = {mementoId = 10371, abilityId = 170722, memento = GetCollectibleName(10371), delay = 0}, -- TEST
+  ["soul"] = {mementoId = 10652, abilityId = 175730, memento = GetCollectibleName(10652), delay = 0},
   ["none"] = {mementoId = nil, abilityId = nil, memento = "no memento", delay = 0},
 }
 
