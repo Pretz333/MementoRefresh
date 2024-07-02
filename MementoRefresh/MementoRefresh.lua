@@ -26,6 +26,7 @@ MementoRefresh.mementos = {
   ["cleats"] = {mementoId = 9361, abilityId = 153672, memento = GetCollectibleName(9361), delay = 0}, -- TEST
   ["astral"] = {mementoId = 9862, abilityId = 162813, memento = GetCollectibleName(9862), delay = 0},
   ["nimbus"] = {mementoId = 10236, abilityId = 166513, memento = GetCollectibleName(10236), delay = 0},
+  ["blossom"] = {mementoId = 10706, abilityId = 176334, memento = GetCollectibleName(10706), delay = 0},
   ["fargrave"] = {mementoId = 10371, abilityId = 170722, memento = GetCollectibleName(10371), delay = 0}, -- TEST
   ["soul"] = {mementoId = 10652, abilityId = 175730, memento = GetCollectibleName(10652), delay = 0},
   ["none"] = {mementoId = nil, abilityId = nil, memento = "no memento", delay = 0},
